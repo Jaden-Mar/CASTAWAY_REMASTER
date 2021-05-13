@@ -1,13 +1,13 @@
 #include <iostream>
 #include <time.h>
 #include <windows.h>
-#include<stdlib.h>
+#include <stdlib.h>
 using namespace std;
 
 //  Gracz* gracz=new Gracz();
-void gotoxy(int x,int y)
+void gotoxy(int x, int y)
 {
-    printf("%c[%d;%df",0x1B,y,x);
+    printf("%c[%d;%df", 0x1B, y, x);
 }
 void clrscr(void)
 {
@@ -16,130 +16,118 @@ void clrscr(void)
 //enum item list
 enum przedmioty
 {
-    puste=0,
-    kamien=1,
-    patyk=2,
-    kilof=10
+    puste = 0,
+    kamien = 1,
+    patyk = 2,
+    kilof = 10
 };
-int pola[9];//Ekwipunek/ Pierdolnik postaci
+
+int pola[9]; //Ekwipunek/ Pierdolnik postaci
+
 class Gracz
 {
 public:
     int hp, pg, def;
     przedmioty ekwipunek[9];
     //
-
 };
 int ile[9];
-void nadajilosc(Gracz* gracz)
+void nadajilosc(Gracz *gracz)
 {
-    for(int i=0; i<10; i++)
+    for (int i = 0; i < 10; i++)
     {
 
-        if(gracz->ekwipunek[i]==przedmioty::puste)
+        if (gracz->ekwipunek[i] == przedmioty::puste)
         {
-            ile[i]=0;
-
-
+            ile[i] = 0;
         }
-        if(gracz->ekwipunek[i]!=przedmioty::puste)
+        if (gracz->ekwipunek[i] != przedmioty::puste)
         {
-            ile[i]=1;
+            ile[i] = 1;
         }
-
     }
 }
 
-
-
-Gracz* startAktu1()
+Gracz *startAktu1()
 {
-    Gracz* gracz=new Gracz();
-    gracz->hp=10;
-    gracz->pg=100;
-    gracz->def=5;
-    for(int i=0; i<10; i++)
+    Gracz *gracz = new Gracz();
+    gracz->hp = 10;
+    gracz->pg = 100;
+    gracz->def = 5;
+    for (int i = 0; i < 10; i++)
     {
-        gracz->ekwipunek[i]=przedmioty::puste;
+        gracz->ekwipunek[i] = przedmioty::puste;
     }
     return gracz;
 }
-void crafting(Gracz* gracz)
+void crafting(Gracz *gracz)
 {
-    if(pola[1]==1&&pola[2]==1&&pola[3]==1&&pola[5]==5&&pola[7]==5)
+    if (pola[1] == 1 && pola[2] == 1 && pola[3] == 1 && pola[5] == 5 && pola[7] == 5)
     {
 
-        for(int i=0; i<10; i++)
+        for (int i = 0; i < 10; i++)
         {
 
-            if(gracz->ekwipunek[i]==przedmioty::puste)
+            if (gracz->ekwipunek[i] == przedmioty::puste)
             {
 
-
-                gracz->ekwipunek[i]=przedmioty::kilof;
+                gracz->ekwipunek[i] = przedmioty::kilof;
 
                 break;
             }
-            if(gracz->ekwipunek[i]!=przedmioty::puste)
+            if (gracz->ekwipunek[i] != przedmioty::puste)
             {
-                cout<<"brak miejsca"<<endl;
+                cout << "brak miejsca" << endl;
                 break;
             }
-
         }
     }
 }
 
-void wybor(Gracz* gracz)
+void wybor(Gracz *gracz)
 {
 
+    cout << "1. Ekwipunek" << endl;
+    cout << "2. tworzenie" << endl;
+    cout << "3. Otoczenie" << endl;
+    cout << "4. Statystyki" << endl;
+    cout << "5. czysty ekran" << endl;
 
-
-
-
-
-
-
-    cout<<"1. Ekwipunek"<<endl;
-    cout<<"2. tworzenie"<<endl;
-    cout<<"3. Otoczenie"<<endl;
-    cout<<"4. Statystyki"<<endl;
-    cout<<"5. czysty ekran"<<endl;
-
-    cout<<"6. koniec gry"<<endl;
+    cout << "6. koniec gry" << endl;
     int a;
 
+    cin >> a;
 
-    cin>>a;
-
-    switch(a)
+    switch (a)
     {
 
     case 1:
-        for(int i=0; i<10; i++)
+        for (int i = 0; i < 10; i++)
         {
 
-            switch(gracz->ekwipunek[i])
+            switch (gracz->ekwipunek[i])
             {
             case przedmioty::puste:
-                cout<<"puste "<<endl;//<<"liczba  "<<ile[i] <<endl;
+                cout << "puste " << endl; //<<"liczba  "<<ile[i] <<endl;
                 break;
             case przedmioty::kilof:
-                cout<<"kilof "<<"ilosc  "<<ile[i] <<endl;
+                cout << "kilof "
+                     << "ilosc  " << ile[i] << endl;
                 break;
             case przedmioty::patyk:
-                cout<<"patyk "<<"ilosc  "<<ile[i] <<endl;
+                cout << "patyk "
+                     << "ilosc  " << ile[i] << endl;
                 break;
             case przedmioty::kamien:
-                cout<<"kamien "<<"ilosc "<<ile[i] <<endl;
+                cout << "kamien "
+                     << "ilosc " << ile[i] << endl;
                 break;
             }
         }
 
-
         break;
     case 2:
-   crafting(gracz);
+        crafting(gracz);
         break;
     case 3:
         break;
@@ -156,83 +144,41 @@ void wybor(Gracz* gracz)
         break;
     default:
 
-
-        cout<<a;
+        cout << a;
         break;
-
-
-
-
-
     }
-
 }
-
-
 
 int main()
 {
-    int x=10, y=20;
-    Gracz* gracz=startAktu1();
-    pola[1]=1;
-    pola[2]=1;
-    pola[3]=1;
-    pola[5]=5;
-    pola[7]=5;
+    int x = 10, y = 20;
+    Gracz *gracz = startAktu1();
+    pola[1] = 1;
+    pola[2] = 1;
+    pola[3] = 1;
+    pola[5] = 5;
+    pola[7] = 5;
 
-    gracz->ekwipunek[1]=przedmioty::kamien;
-   // crafting(gracz);
-    while(1)
+    gracz->ekwipunek[1] = przedmioty::kamien;
+    // crafting(gracz);
+    while (1)
     {
 
         nadajilosc(gracz);
 
         wybor(gracz);
-
-
-
     }
 
     delete gracz;
     return 0;
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /*
 To Do:
-tablica 3wym + czas do okreœlenia pozycji
+tablica 3wym + czas do okreï¿½lenia pozycji
 system ekwipunku
 system craftingu ##ZROBIONE##
-Generowanie œwiata
+Generowanie ï¿½wiata
 
 
 TODO::END
@@ -258,4 +204,3 @@ int main()
 
 
 */
-
