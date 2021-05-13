@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1620939717 source:c:\users\thinky2jimma\desktop\projekty\castaway\main.cpp
+	<iostream>
+	<time.h>
+	<windows.h>
+	<stdlib.h>
+
