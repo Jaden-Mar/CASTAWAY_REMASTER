@@ -97,8 +97,6 @@ void wybor(Gracz *gracz)
     int a;
     bool bCzyBlad = std::cin.fail();
 
-    //(edytowane)
-    //[23:36]
 
     cin >> a;
     if (bCzyBlad)
@@ -179,6 +177,10 @@ tablica 3wym + czas do okre�lenia pozycji
 system ekwipunku
 system craftingu ##ZROBIONE##
 Generowanie �wiata
+Nowe przedmioty
+Otoczenie
+better crafting
+
 
 TODO::END
 
