@@ -62,20 +62,22 @@ void crafting(Gracz* gracz)
 {
 	if (pola[1] == 1 && pola[2] == 1 && pola[3] == 1 && pola[5] == 5 && pola[7] == 5)
 	{
+        bool czystworzono=false;
 		for (int i = 0; i < 10; i++)
 		{
 			if (gracz->ekwipunek[i] == przedmioty::puste)
 			{
 				gracz->ekwipunek[i] = przedmioty::kilof;
-
+				czystworzono=true;
 				break;
 			}
-			if (gracz->ekwipunek[i] != przedmioty::puste)
+			/*if (gracz->ekwipunek[i] != przedmioty::puste)
 			{
 				cout << "brak miejsca" << endl;
 				break;
-			}
+			}*/
 		}
+        if(czystworzono==false){cout<<"BRAK MIEJSCA!"<<endl;}
 	}
 }
 
