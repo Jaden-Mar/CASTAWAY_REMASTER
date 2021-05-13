@@ -1,6 +1,7 @@
 #include <iostream>
 #include <time.h>
 #include <windows.h>
+#include <limits>
 #include <stdlib.h>
 using namespace std;
 
@@ -36,7 +37,6 @@ void nadajilosc(Gracz *gracz)
 {
     for (int i = 0; i < 10; i++)
     {
-
         if (gracz->ekwipunek[i] == przedmioty::puste)
         {
             ile[i] = 0;
@@ -64,13 +64,10 @@ void crafting(Gracz *gracz)
 {
     if (pola[1] == 1 && pola[2] == 1 && pola[3] == 1 && pola[5] == 5 && pola[7] == 5)
     {
-
         for (int i = 0; i < 10; i++)
         {
-
             if (gracz->ekwipunek[i] == przedmioty::puste)
             {
-
                 gracz->ekwipunek[i] = przedmioty::kilof;
 
                 break;
@@ -86,25 +83,29 @@ void crafting(Gracz *gracz)
 
 void wybor(Gracz *gracz)
 {
-
     cout << "1. Ekwipunek" << endl;
     cout << "2. tworzenie" << endl;
     cout << "3. Otoczenie" << endl;
     cout << "4. Statystyki" << endl;
     cout << "5. czysty ekran" << endl;
-
     cout << "6. koniec gry" << endl;
     int a;
+    bool bCzyBlad = std::cin.fail();
+
+    //(edytowane)
+    //[23:36]
 
     cin >> a;
-
+    if (bCzyBlad)
+    {
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    }
     switch (a)
     {
-
     case 1:
         for (int i = 0; i < 10; i++)
         {
-
             switch (gracz->ekwipunek[i])
             {
             case przedmioty::puste:
@@ -136,15 +137,11 @@ void wybor(Gracz *gracz)
     case 5:
         clrscr();
         break;
-
     case 6:
-
         exit(3);
-
         break;
     default:
-
-        cout << a;
+        cout << a << endl;
         break;
     }
 }
@@ -163,9 +160,7 @@ int main()
     // crafting(gracz);
     while (1)
     {
-
         nadajilosc(gracz);
-
         wybor(gracz);
     }
 
@@ -180,27 +175,22 @@ system ekwipunku
 system craftingu ##ZROBIONE##
 Generowanie �wiata
 
-
 TODO::END
-
-
 
 int main()
 {
-    Gracz* gracz=startAktu1();
-    cout<< gracz->ekwipunek[6]<<endl;
-    gracz->ekwipunek[1]=przedmioty::kamien;
-     cout<< gracz->ekwipunek[1]<<endl;
+	Gracz* gracz=startAktu1();
+	cout<< gracz->ekwipunek[6]<<endl;
+	gracz->ekwipunek[1]=przedmioty::kamien;
+	 cout<< gracz->ekwipunek[1]<<endl;
   cout<<"+_+_+_+_+_+_+"<<endl;
 
   for(int i=0; i<10; i++)
-    {
-      cout<< gracz->ekwipunek[i]<<endl;
-
-    }
-        delete gracz;
-    return 0;
+	{
+	  cout<< gracz->ekwipunek[i]<<endl;
+	}
+		delete gracz;
+	return 0;
 }
-
 
 */
