@@ -120,19 +120,16 @@ void wybor(Gracz *gracz)
             switch (gracz->ekwipunek[i])
             {
             case przedmioty::puste:
-                cout << "puste " <<"czy puste? "<<czypuste[i]<< endl; //<<"liczba  "<<ile[i] <<endl;
+                cout << "puste " <<endl;//"czy puste? "<<czypuste[i]<< endl; //<<"liczba  "<<ile[i] <<endl;
                 break;
             case przedmioty::kilof:
-                cout << "kilof "
-                     << "ilosc  " << ile[i] <<"czy puste? "<<czypuste[i]<< endl;
+                cout << "kilof "<< "ilosc " << ile[i]<<endl;// <<"czy puste? "<<czypuste[i]<< endl;
                 break;
             case przedmioty::patyk:
-                cout << "patyk "
-                     << "ilosc  " << ile[i] <<"czy puste? "<<czypuste[i]<< endl;
+                cout << "patyk "<< "ilosc " << ile[i] <<endl;//"czy puste? "<<czypuste[i]<< endl;
                 break;
             case przedmioty::kamien:
-                cout << "kamien "
-                     << "ilosc " << ile[i] <<"czy puste? "<<czypuste[i]<< endl;
+                cout << "kamien "<< "ilosc " << ile[i] <<endl;//"czy puste? "<<czypuste[i]<< endl;
                 break;
             }
         }
@@ -169,10 +166,11 @@ int main()
     gracz->ekwipunek[2] = przedmioty::patyk; ile[2]=2;
     gracz->ekwipunek[1] = przedmioty::kamien; ile[1]=3;
   //   crafting(gracz);
+   nadajilosc(gracz);
+       crafting(gracz);
     while (1)
     {
-        nadajilosc(gracz);
-     //   crafting(gracz);
+
         wybor(gracz);
     }
 
