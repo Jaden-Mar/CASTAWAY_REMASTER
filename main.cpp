@@ -59,32 +59,66 @@ Gracz *startAktu1()
         gracz->ekwipunek[i] = przedmioty::puste;
     }
     return gracz;
-}
+}bool czypuste[9];
+    bool czystworzono = false;
 void crafting(Gracz *gracz)
 {
-    if (pola[1] == 1 && pola[2] == 1 && pola[3] == 1 && pola[5] == 5 && pola[7] == 5)
-    {
-        bool czystworzono = false;
-        for (int i = 0; i < 10; i++)
+
+  for (int i = 0; i < 10; i++)
+      {
+         if(gracz->ekwipunek[i] == przedmioty::puste )
+               {czypuste[i]=true;
+
+
+
+                }
+               else czypuste[i]=false;
+
+                 for (int i = 0; i < 10; i++)
         {
-            if (gracz->ekwipunek[i] == przedmioty::puste)
-            {
-                gracz->ekwipunek[i] = przedmioty::kilof;
-                czystworzono = true;
-                break;
-            }
-            /*if (gracz->ekwipunek[i] != przedmioty::puste)
-			{
-				cout << "brak miejsca" << endl;
-				break;
-			}*/
-        }
-        if (czystworzono == false)
-        {
-            cout << "BRAK MIEJSCA!" << endl;
-        }
+            if(czypuste[i]==false)
+                {
+                    if(gracz->ekwipunek[i] == przedmioty::kamien &&ile[i]==3)
+                {
+                    for (int i = 0; i < 10; i++)
+                {
+                    if(gracz->ekwipunek[i] == przedmioty::patyk &&ile[i]==2)
+                {
+
+                    czystworzono=true;
+                     for (int i = 0; i < 10; i++)
+                {
+                 if(czypuste[i]==true)
+                 {gracz->ekwipunek[i] = przedmioty::kilof;
+                 }
+
+                }
+                }
+                }
+                }
+                }
+               // else czypuste[i]=false;
+                 }
+      //      switch(przedmioty)
+      //      {case przedmioty::kamien:
+      //          break;
+
+
+
+    //     if (gracz->ekwipunek[i] == przedmioty::puste )
+    //     {cout<<"puste"<<endl;
     }
-}
+       // else  if(gracz->ekwipunek[i] == przedmioty::patyk){}
+
+
+
+
+
+        }
+
+
+
+
 
 void wybor(Gracz *gracz)
 {
@@ -112,19 +146,19 @@ void wybor(Gracz *gracz)
             switch (gracz->ekwipunek[i])
             {
             case przedmioty::puste:
-                cout << "puste " << endl; //<<"liczba  "<<ile[i] <<endl;
+                cout << "puste " <<"czy puste? "<<czypuste[i]<< endl; //<<"liczba  "<<ile[i] <<endl;
                 break;
             case przedmioty::kilof:
                 cout << "kilof "
-                     << "ilosc  " << ile[i] << endl;
+                     << "ilosc  " << ile[i] <<"czy puste? "<<czypuste[i]<< endl;
                 break;
             case przedmioty::patyk:
                 cout << "patyk "
-                     << "ilosc  " << ile[i] << endl;
+                     << "ilosc  " << ile[i] <<"czy puste? "<<czypuste[i]<< endl;
                 break;
             case przedmioty::kamien:
                 cout << "kamien "
-                     << "ilosc " << ile[i] << endl;
+                     << "ilosc " << ile[i] <<"czy puste? "<<czypuste[i]<< endl;
                 break;
             }
         }
@@ -153,14 +187,14 @@ int main()
 {
     int x = 10, y = 20;
     Gracz *gracz = startAktu1();
-    pola[1] = 1;
+/*    pola[1] = 1;
     pola[2] = 1;
     pola[3] = 1;
     pola[5] = 5;
-    pola[7] = 5;
+    pola[7] = 5;*/
 
     gracz->ekwipunek[1] = przedmioty::kamien;
-    // crafting(gracz);
+     crafting(gracz);
     while (1)
     {
         nadajilosc(gracz);
@@ -173,13 +207,6 @@ int main()
 
 /*
 To Do:
-tablica 3wym + czas do okre�lenia pozycji
-system ekwipunku
-system craftingu ##ZROBIONE##
-Generowanie �wiata
-Nowe przedmioty
-Otoczenie
-better crafting
 
 
 TODO::END
