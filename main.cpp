@@ -4,7 +4,7 @@
 #include <limits>
 #include <stdlib.h>
 using namespace std;
-
+bool czypuste[9];
 //  Gracz* gracz=new Gracz();
 void gotoxy(int x, int y)
 {
@@ -33,18 +33,36 @@ public:
     //
 };
 int ile[9];
+/*
+void sprawdztyp(Gracz* gracz)
+{
+      for (int i = 0; i < 10; i++)
+    {
+     if (gracz->ekwipunek[i] == przedmioty::puste){}
+    else if (gracz->ekwipunek[i] == przedmioty::kamien){}
+    else if (gracz->ekwipunek[i] == przedmioty::patyk){}
+     else if (gracz->ekwipunek[i] == przedmioty::kilof){}
+    }
+
+    }
+*/
+
+
 void nadajilosc(Gracz *gracz)
 {
     for (int i = 0; i < 10; i++)
     {
         if (gracz->ekwipunek[i] == przedmioty::puste)
         {
+
+        czypuste[i]=true;
+
             ile[i] = 0;
         }
         if (gracz->ekwipunek[i] != przedmioty::puste)
         {
-            ile[i] = 1;
-        }
+         czypuste[i]=false;
+                 }
     }
 }
 
@@ -59,60 +77,16 @@ Gracz *startAktu1()
         gracz->ekwipunek[i] = przedmioty::puste;
     }
     return gracz;
-}bool czypuste[9];
+}
     bool czystworzono = false;
 void crafting(Gracz *gracz)
 {
+    for (int i = 0; i < 10; i++){
+if(czypuste[i]==false)
+   {
+   }
 
-  for (int i = 0; i < 10; i++)
-      {
-         if(gracz->ekwipunek[i] == przedmioty::puste )
-               {czypuste[i]=true;
-
-
-
-                }
-               else czypuste[i]=false;
-
-                 for (int i = 0; i < 10; i++)
-        {
-            if(czypuste[i]==false)
-                {
-                    if(gracz->ekwipunek[i] == przedmioty::kamien &&ile[i]==3)
-                {
-                    for (int i = 0; i < 10; i++)
-                {
-                    if(gracz->ekwipunek[i] == przedmioty::patyk &&ile[i]==2)
-                {
-
-                    czystworzono=true;
-                     for (int i = 0; i < 10; i++)
-                {
-                 if(czypuste[i]==true)
-                 {gracz->ekwipunek[i] = przedmioty::kilof;
-                 }
-
-                }
-                }
-                }
-                }
-                }
-               // else czypuste[i]=false;
-                 }
-      //      switch(przedmioty)
-      //      {case przedmioty::kamien:
-      //          break;
-
-
-
-    //     if (gracz->ekwipunek[i] == przedmioty::puste )
-    //     {cout<<"puste"<<endl;
-    }
-       // else  if(gracz->ekwipunek[i] == przedmioty::patyk){}
-
-
-
-
+}
 
         }
 
@@ -192,12 +166,13 @@ int main()
     pola[3] = 1;
     pola[5] = 5;
     pola[7] = 5;*/
-
-    gracz->ekwipunek[1] = przedmioty::kamien;
-     crafting(gracz);
+    gracz->ekwipunek[2] = przedmioty::patyk; ile[2]=2;
+    gracz->ekwipunek[1] = przedmioty::kamien; ile[1]=3;
+  //   crafting(gracz);
     while (1)
     {
         nadajilosc(gracz);
+     //   crafting(gracz);
         wybor(gracz);
     }
 

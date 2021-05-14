@@ -1,0 +1,51 @@
+
+
+  for (int i = 0; i < 10; i++)
+      {
+         if(gracz->ekwipunek[i] == przedmioty::puste )
+               {czypuste[i]=true;
+
+
+
+                }
+               else czypuste[i]=false;
+
+                 for (int i = 0; i < 10; i++)
+        {
+            if(czypuste[i]==false)
+                {
+                    if(gracz->ekwipunek[i] == przedmioty::kamien &&ile[i]==3)
+                {
+                    for (int i = 0; i < 10; i++)
+                {
+                    if(gracz->ekwipunek[i] == przedmioty::patyk &&ile[i]==2)
+                {
+
+                    czystworzono=true;
+                     for (int i = 0; i < 10; i++)
+                {
+                 if(czypuste[i]==true)
+                 {gracz->ekwipunek[i] = przedmioty::kilof;
+                 }
+
+                }
+                }
+                }
+                }
+                }
+               // else czypuste[i]=false;
+                 }
+      //      switch(przedmioty)
+      //      {case przedmioty::kamien:
+      //          break;
+
+
+
+    //     if (gracz->ekwipunek[i] == przedmioty::puste )
+    //     {cout<<"puste"<<endl;
+    }
+       // else  if(gracz->ekwipunek[i] == przedmioty::patyk){}
+
+
+
+
